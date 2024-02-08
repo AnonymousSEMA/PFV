@@ -36,11 +36,11 @@ clean-docker-full:
 # Install and update submodules, prepare directories
 install:
     # Initialize and update git submodules recursively
-	cd src/; git clone https://github.com/AnonymousSEMA/Protocols-Ivy.git;
+	cd src/; git clone https://github.com/AnonymousSEMA/Protocols-Ivy.git; mkdir submodules; cd submodules git clone https://github.com/h2o/picotls.git
 	git submodule update --init --recursive
 	git submodule update --recursive
     # Checkout specific branches and set up directories for QUIC protocol examples and testing
-	cd src/Protocols-Ivy/; git fetch; git checkout production
+	cd src/Protocols-Ivy/; git fetch; git checkout master
 	cd src/Protocols-Ivy; git submodule update --init --recursive
 	cd src/Protocols-Ivy; git submodule update --recursive
     # Create necessary directories and files for QUIC, MiniP, and CoAP protocol testing
@@ -58,12 +58,11 @@ checkout-git:
     # Specific commits are checked out for each submodule to ensure consistency and reproducibility
 	cd src/Protocols-Ivy/submodules/picotls/; git checkout 047c5fe20bb9ea91c1caded8977134f19681ec76
     # QUIC implementations
-	cd src/implementations/quic-implementations/aioquic/;git checkout d272be10b93b09b75325b139090007dae16b9f16
-	cd src/implementations/quic-implementations/boringssl/; git checkout a9670a8b476470e6f874fef3554e8059683e1413; git submodule init; git submodule update
-	cd src/implementations/quic-implementations/lsquic/; git checkout 0a4f8953dc92dd3085e48ed90f293f052cff8427; 
+	#cd src/implementations/quic-implementations/aioquic/;git checkout d272be10b93b09b75325b139090007dae16b9f16
+	#cd src/implementations/quic-implementations/boringssl/; git checkout a9670a8b476470e6f874fef3554e8059683e1413; git submodule init; git submodule update
+	#cd src/implementations/quic-implementations/lsquic/; git checkout 0a4f8953dc92dd3085e48ed90f293f052cff8427; 
 	cd src/implementations/quic-implementations/picoquic/; git checkout bb67995f2d7c0e577c2c8788313c3b580d3df9a7; 
-	cd src/implementations/quic-implementations/quant/; git checkout 9e309c05f79fb6aa3889dcf7df60b550249d2a2a;  git submodule update --init --recursive
-	cd src/implementations/quic-implementations/picoquic/; git checkout bb67995f2d7c0e577c2c8788313c3b580d3df9a7; 
+	#cd src/implementations/quic-implementations/quant/; git checkout 9e309c05f79fb6aa3889dcf7df60b550249d2a2a;  git submodule update --init --recursive
 	cd src/implementations/quic-implementations/picotls/; git checkout 047c5fe20bb9ea91c1caded8977134f19681ec76; 
 
 ###################################################################################################
