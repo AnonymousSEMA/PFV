@@ -36,7 +36,7 @@ clean-docker-full:
 # Install and update submodules, prepare directories
 install:
     # Initialize and update git submodules recursively
-	cd src/; git clone https://github.com/AnonymousSEMA/Protocols-Ivy.git; cd Protocols-Ivy; mkdir submodules; cd submodules; git clone https://github.com/h2o/picotls.git
+	cd src/; git clone https://github.com/AnonymousSEMA/Protocols-Ivy.git; cd Protocols-Ivy; mkdir submodules; cd submodules; git clone https://github.com/h2o/picotls.git; git clone https://github.com/kenmcmil/z3.git
 	cd src/implementations/quic-implementations/; git clone https://github.com/AnonymousSEMA/picoquic.git; git clone https://github.com/h2o/picotls.git
 	git submodule update --init --recursive
 	git submodule update --recursive
