@@ -20,6 +20,19 @@ For now the following protocols are supported:
 <details>
 <summary>Click to expand</summary>
 
+### :whale: WebApp (Recommended) 
+
+```bash
+# For first installation 
+make install
+
+# For modification: 
+## For major update in ivy:
+make build-docker-compose-full
+## For a minor update in some implementation:
+make build-docker-compose
+```
+
 ### :computer: Local Installation (Not Recommended)
 
 <details>
@@ -40,19 +53,6 @@ IMPLEM="picoquic" make build-docker
 ```
 </details>
 
-### :whale: WebApp (Recommended) 
-
-```bash
-# For first installation 
-make install
-
-# For modification: 
-## For major update in ivy:
-make build-docker-compose-full
-## For a minor update in some implementation:
-make build-docker-compose
-```
-
 ### :warning: Clean Up
 
 <details>
@@ -72,6 +72,19 @@ make clean-docker-full
 
 <details>
 <summary>Click to expand</summary>
+
+### :whale: WebApp (Recommended) 
+
+Update the `docker-compose.yml` file with the protocol implementation and run the following command:
+
+```bash
+# Compose the full Docker environment for all implementations
+make compose
+```
+
+Then go to `172.27.1.10` to access the WebApp.
+
+</details>
 
 ### :book: Tests parameters
 
@@ -137,19 +150,6 @@ python3 pfv.py --mode client --categories all --update_include_tls \
 		--timeout 180 --implementations $(IMPLEM) --iter $(ITER) --compile  --initial_version 29 --alpn hq-29  
 # Example: Runs a Docker container with 'picoquic' for interactive Bash access
 ```
-</details>
-
-### :whale: WebApp (Recommended) 
-
-Update the `docker-compose.yml` file with the protocol implementation and run the following command:
-
-```bash
-# Compose the full Docker environment for all implementations
-make compose
-```
-
-Then go to `172.27.1.10` to access the WebApp.
-
 </details>
 
 ---
