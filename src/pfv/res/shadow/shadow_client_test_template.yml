@@ -49,18 +49,18 @@ hosts:
       environment:
           PROOTPATH: /PFV
           PATH: /root/.local/bin:/root/.cargo/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/go/bin
-          ZRTT_SSLKEYLOGFILE: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/last_tls_key.txt
-          RETRY_TOKEN_FILE: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/last_retry_token.txt
-          NEW_TOKEN_FILE: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/last_new_token.txt
-          ENCRYPT_TICKET_FILE: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/last_encrypt_session_ticket.txt          
-          SESSION_TICKET_FILE: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/last_session_ticket_cb.txt
-          SAVED_PACKET: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/saved_packet.txt
-          initial_max_stream_id_bidi: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/initial_max_stream_id_bidi.txt
-          active_connection_id_limit: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/active_connection_id_limit.txt
-          initial_max_stream_data_bidi_local: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/initial_max_stream_data_bidi_local.txt
-          initial_max_stream_data_bidi_remote: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/initial_max_stream_data_bidi_remote.txt
-          initial_max_stream_data_uni: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/initial_max_stream_data_uni.txt
-          initial_max_data: /PFV/QUIC-Ivy-Attacker/doc/examples/quic/initial_max_data.txt
+          ZRTT_SSLKEYLOGFILE: /PFV/Protocols-Ivy/doc/examples/quic/last_tls_key.txt
+          RETRY_TOKEN_FILE: /PFV/Protocols-Ivy/doc/examples/quic/last_retry_token.txt
+          NEW_TOKEN_FILE: /PFV/Protocols-Ivy/doc/examples/quic/last_new_token.txt
+          ENCRYPT_TICKET_FILE: /PFV/Protocols-Ivy/doc/examples/quic/last_encrypt_session_ticket.txt          
+          SESSION_TICKET_FILE: /PFV/Protocols-Ivy/doc/examples/quic/last_session_ticket_cb.txt
+          SAVED_PACKET: /PFV/Protocols-Ivy/doc/examples/quic/saved_packet.txt
+          initial_max_stream_id_bidi: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_stream_id_bidi.txt
+          active_connection_id_limit: /PFV/Protocols-Ivy/doc/examples/quic/active_connection_id_limit.txt
+          initial_max_stream_data_bidi_local: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_stream_data_bidi_local.txt
+          initial_max_stream_data_bidi_remote: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_stream_data_bidi_remote.txt
+          initial_max_stream_data_uni: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_stream_data_uni.txt
+          initial_max_data: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_data.txt
           INITIAL_VERSION: "<VERSION>"
           TEST_TYPE: client
           TEST_IMPL: <IMPLEMENTATION>
