@@ -151,12 +151,12 @@ class QUICIvyTest(IvyTest):
             self.implem_cmd = self.implem_cmd.replace("ALPN",ENV_VAR["TEST_ALPN"])
     
     def generate_shadow_config(self):
-        server_implem_args = self.implem_conf[0][self.implementation_name]["cert-param"] + " " + self.implem_conf[0][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["key-param"] + " " + self.implem_conf[0][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[0][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["log-param"] + " " + self.implem_conf[0][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["qlog-param"] + " " + self.implem_conf[0][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[0][self.implementation_name]["secret-key-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
+        server_implem_args = self.implem_conf[0][self.implementation_name]["cert-param"] + " " + self.implem_conf[0][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["key-param"] + " " + self.implem_conf[0][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[0][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["log-param"] + " " + self.implem_conf[0][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["qlog-param"] + " " + self.implem_conf[0][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[0][self.implementation_name]["secret-key-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
             + " " + self.implem_conf[0][self.implementation_name]["alpn"] + " " + self.implem_conf[0][self.implementation_name]["alpn-value"] \
             + " " + self.implem_conf[0][self.implementation_name]["version"] + " " + self.implem_conf[0][self.implementation_name]["version-value"] \
             + " " + self.implem_conf[0][self.implementation_name]["verbosity"] + " " + self.implem_conf[0][self.implementation_name]["addition-parameters"] \
@@ -175,12 +175,12 @@ class QUICIvyTest(IvyTest):
         server_implem_args = server_implem_args.replace("ALPN",ENV_VAR["TEST_ALPN"])
         server_implem_args = re.sub('\s{2,}', ' ', server_implem_args)
         
-        client_implem_args = self.implem_conf[1][self.implementation_name]["cert-param"] + " " + self.implem_conf[1][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["key-param"] + " " + self.implem_conf[1][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[1][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["log-param"] + " " + self.implem_conf[1][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["qlog-param"] + " " + self.implem_conf[1][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[1][self.implementation_name]["secret-key-file"] \
+        client_implem_args = self.implem_conf[1][self.implementation_name]["cert-param"] + " " + self.implem_conf[1][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["key-param"] + " " + self.implem_conf[1][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[1][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["log-param"] + " " + self.implem_conf[1][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["qlog-param"] + " " + self.implem_conf[1][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[1][self.implementation_name]["secret-key-file"].replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
             + " " + self.implem_conf[1][self.implementation_name]["alpn"] + " " + self.implem_conf[1][self.implementation_name]["alpn-value"] \
             + " " + self.implem_conf[1][self.implementation_name]["version"] + " " + self.implem_conf[1][self.implementation_name]["version-value"] \
             + " " + self.implem_conf[1][self.implementation_name]["verbosity"] + " " + self.implem_conf[1][self.implementation_name]["addition-parameters"] \
@@ -237,8 +237,8 @@ class QUICIvyTest(IvyTest):
         print("rm -r /PFV/shadow.data/ ")
         os.system("rm -r /PFV/shadow.data/ ")
         os.system("rm  /PFV/shadow.log ")
-        self.log.info("command: RUST_BACKTRACE=1 shadow " + file + " > shadow.log")
-        print("command: RUST_BACKTRACE=1 shadow " + file + " > shadow.log")
+        self.log.info("command: RUST_BACKTRACE=full shadow " + file + " > shadow.log")
+        print("command: RUST_BACKTRACE=full shadow " + file + " > shadow.log")
                         
         return file
     
@@ -247,12 +247,12 @@ class QUICIvyTest(IvyTest):
     def generate_implementation_command(self):
         server_command = self.implem_conf[0][self.implementation_name]["binary-name"].replace("$IMPLEM_DIR",IMPLEM_DIR.replace("$PROT",self.current_protocol)+self.current_protocol).replace("$MODEL_DIR",MODEL_DIR+self.current_protocol) \
             + " " + self.implem_conf[0][self.implementation_name]["interface"] + " " + self.implem_conf[0][self.implementation_name]["interface-value"] \
-            + " " + self.implem_conf[0][self.implementation_name]["cert-param"] + " " + self.implem_conf[0][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["key-param"] + " " + self.implem_conf[0][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[0][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["log-param"] + " " + self.implem_conf[0][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["qlog-param"] + " " + self.implem_conf[0][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[0][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[0][self.implementation_name]["secret-key-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
+            + " " + self.implem_conf[0][self.implementation_name]["cert-param"] + " " + self.implem_conf[0][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["key-param"] + " " + self.implem_conf[0][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[0][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["log-param"] + " " + self.implem_conf[0][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["qlog-param"] + " " + self.implem_conf[0][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[0][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[0][self.implementation_name]["secret-key-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
             + " " + self.implem_conf[0][self.implementation_name]["alpn"] + " " + self.implem_conf[0][self.implementation_name]["alpn-value"] \
             + " " + self.implem_conf[0][self.implementation_name]["version"] + " " + self.implem_conf[0][self.implementation_name]["version-value"] \
             + " " + self.implem_conf[0][self.implementation_name]["verbosity"] + " " + self.implem_conf[0][self.implementation_name]["addition-parameters"] \
@@ -267,12 +267,12 @@ class QUICIvyTest(IvyTest):
 
         client_command = self.implem_conf[1][self.implementation_name]["binary-name"].replace("$IMPLEM_DIR",IMPLEM_DIR.replace("$PROT",self.current_protocol)+self.current_protocol).replace("$MODEL_DIR",MODEL_DIR+self.current_protocol)  \
             + " " + self.implem_conf[1][self.implementation_name]["interface"] + " " + self.implem_conf[1][self.implementation_name]["interface-value"] \
-            + " " + self.implem_conf[1][self.implementation_name]["cert-param"] + " " + self.implem_conf[1][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["key-param"] + " " + self.implem_conf[1][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[1][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["log-param"] + " " + self.implem_conf[1][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["qlog-param"] + " " + self.implem_conf[1][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR) \
-            + " " + self.implem_conf[1][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[1][self.implementation_name]["secret-key-file"] \
+            + " " + self.implem_conf[1][self.implementation_name]["cert-param"] + " " + self.implem_conf[1][self.implementation_name]["cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["key-param"] + " " + self.implem_conf[1][self.implementation_name]["key-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["root-cert-param"] + " " + self.implem_conf[1][self.implementation_name]["root-cert-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["log-param"] + " " + self.implem_conf[1][self.implementation_name]["log-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["qlog-param"] + " " + self.implem_conf[1][self.implementation_name]["qlog-file"].replace("$SOURCE_DIR",SOURCE_DIR).replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
+            + " " + self.implem_conf[1][self.implementation_name]["secret-key-param"] + " " + self.implem_conf[1][self.implementation_name]["secret-key-file"].replace("$IMPLEM_DIR",self.implem_dir_server+"/") \
             + " " + self.implem_conf[1][self.implementation_name]["alpn"] + " " + self.implem_conf[1][self.implementation_name]["alpn-value"] \
             + " " + self.implem_conf[1][self.implementation_name]["version"] + " " + self.implem_conf[1][self.implementation_name]["version-value"] \
             + " " + self.implem_conf[1][self.implementation_name]["verbosity"] + " " + self.implem_conf[1][self.implementation_name]["addition-parameters"] \

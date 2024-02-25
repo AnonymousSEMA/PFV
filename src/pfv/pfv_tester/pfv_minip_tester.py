@@ -53,9 +53,9 @@ class MiniPIvyTest(IvyTest):
                                                                                                 self.implem_conf[0][self.implementation_name]["port-value"]) 
         
         
-        client_implem_args = self.implem_conf[1][self.implementation_name]["destination-format"].replace("[destination]", 
+        client_implem_args = self.implem_conf[1][self.implementation_name]["destination-format"].replace("[source]", 
                                                                                             self.implem_conf[1][self.implementation_name]["destination"]
-                                                                                        ).replace("[destination-value]", 
+                                                                                        ).replace("[source-value]", 
                                                                                                     self.implem_conf[1][self.implementation_name]["destination-value"]
                                                                                         ).replace("[port]", 
                                                                                                     self.implem_conf[1][self.implementation_name]["port"]
@@ -117,9 +117,9 @@ class MiniPIvyTest(IvyTest):
                                                                                         ).replace("[port-value]", 
                                                                                                     self.implem_conf[0][self.implementation_name]["port-value"]) 
         client_command = self.implem_conf[1][self.implementation_name]["binary-name"].replace("$IMPLEM_DIR",IMPLEM_DIR.replace("$PROT",self.current_protocol)+self.current_protocol).replace("$MODEL_DIR",MODEL_DIR+self.current_protocol) \
-                    + " "  +self.implem_conf[1][self.implementation_name]["destination-format"].replace("[destination]", 
+                    + " "  +self.implem_conf[1][self.implementation_name]["destination-format"].replace("[source]", 
                                                                                                 self.implem_conf[1][self.implementation_name]["destination"]
-                                                                                            ).replace("[destination-value]", 
+                                                                                            ).replace("[source-value]", 
                                                                                                         self.implem_conf[1][self.implementation_name]["destination-value"]
                                                                                             ).replace("[port]", 
                                                                                                         self.implem_conf[1][self.implementation_name]["port"]

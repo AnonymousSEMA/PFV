@@ -30,7 +30,7 @@ network:
           target 0
           latency "10 ms"
           jitter "10 ms"
-          packet_loss 1.0
+          packet_loss 0.0
         ]
       ]
 
@@ -44,8 +44,8 @@ hosts:
     network_node_id: 0
     ip_addr: "11.0.0.1"
     processes:
-    - path: /PFV/Protocols-Ivy/protocol-testing/quic/build//quic_client_test_max
-      args:  seed=28 the_cid=1 server_port=4443 iversion=29 server_addr=184549377 modify_packets=false  
+    - path: /PFV/Protocols-Ivy/protocol-testing/quic/build//quic_client_test_timeout_no_sleep
+      args:  seed=984 the_cid=1 server_port=4443 iversion=29 server_addr=184549377 modify_packets=false  
       environment:
           PROOTPATH: /PFV
           PATH: /root/.local/bin:/root/.cargo/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/go/bin
