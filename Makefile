@@ -177,3 +177,85 @@ start-bash:
                -v $(PWD)/src/Protocols-Ivy/doc/examples/quic:/PFV/Protocols-Ivy/doc/examples/quic \
                -v $(PWD)/src/Protocols-Ivy/ivy/include/1.7:/PFV/Protocols-Ivy/ivy/include/1.7 \
                -it $(IMPLEM)-ivy bash
+
+forte-2024-picoquic:
+    # TODO
+	docker run -d \
+			--hostname picoquic-shadow-ivy-forte \
+			--network net  \
+			--privileged \
+			--security-opt seccomp:unconfined \
+			--cap-add NET_ADMIN \
+			--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=1024g \
+			-e DISPLAY=${DISPLAY} \
+			-e XAUTHORITY=~/.Xauthority \
+			-e ROOT_PATH=${PWD} \
+			-e MPLBACKEND='Agg' \
+			--restart always \
+			--device /dev/dri:/dev/dri \
+			-v ${PWD}/src/webapp/pfv_client.py:/PFV/webapp/pfv_client.py \
+			-v ${PWD}/src/pfv/pfv.py:/PFV/pfv.py \
+			-v ${PWD}/src/pfv/res/shadow/shadow_client_test.yml:/PFV/topo.gml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_client_test.yml:/PFV/shadow_client_test.yml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_server_test.yml:/PFV/shadow_server_test.yml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_client_test_template.yml:/PFV/shadow_client_test_template.yml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_server_test_template.yml:/PFV/shadow_server_test_template.yml \
+			-v ${PWD}/data/tls-keys:/PFV/tls-keys \
+			-v ${PWD}/data/tickets:/PFV/tickets \
+			-v ${PWD}/data/qlogs:/PFV/qlogs \
+			-v ${PWD}/src/pfv/pfv_utils/:/PFV/pfv_utils/ \
+			-v ${PWD}/src/pfv/pfv_stats/:/PFV/pfv_stats/ \
+			-v ${PWD}/src/pfv/pfv_runner/:/PFV/pfv_runner/ \
+			-v ${PWD}/src/pfv/pfv_tester/:/PFV/pfv_tester/ \
+			-v ${PWD}/src/pfv/ivy_utils/:/PFV/ivy_utils/ \
+			-v ${PWD}/src/pfv/logger/:/PFV/logger/ \
+			-v ${PWD}/src/pfv/argument_parser/:/PFV/argument_parser/ \
+			-v ${PWD}/src/pfv/configs/:/PFV/configs/ \
+			-v ${PWD}/src/Protocols-Ivy/protocol-testing/:/PFV/Protocols-Ivy/protocol-testing/ \
+			-v ${PWD}/src/Protocols-Ivy/doc/examples/quic:/PFV/Protocols-Ivy/doc/examples/quic \
+			-v ${PWD}/src/Protocols-Ivy/ivy/:/PFV/Protocols-Ivy/ivy/ \
+			-v ${PWD}/src/Protocols-Ivy/ivy/include/1.7:/PFV/Protocols-Ivy/ivy/include/1.7 \
+			-v /tmp/.X11-unix:/tmp/.X11-unix \
+			picoquic-shadow-ivy:latest \
+			python3 pfv.py --update_ivy --getstats --compile --docker
+
+forte-2024-ping-pong:
+    # TODO
+	docker run -d \
+			--hostname ping-pong-ivy-forte \
+			--network net  \
+			--privileged \
+			--security-opt seccomp:unconfined \
+			--cap-add NET_ADMIN \
+			--tmpfs /dev/shm:rw,nosuid,nodev,exec,size=1024g \
+			-e DISPLAY=${DISPLAY} \
+			-e XAUTHORITY=~/.Xauthority \
+			-e ROOT_PATH=${PWD} \
+			-e MPLBACKEND='Agg' \
+			--restart always \
+			--device /dev/dri:/dev/dri \
+			-v ${PWD}/src/webapp/pfv_client.py:/PFV/webapp/pfv_client.py \
+			-v ${PWD}/src/pfv/pfv.py:/PFV/pfv.py \
+			-v ${PWD}/src/pfv/res/shadow/shadow_client_test.yml:/PFV/topo.gml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_client_test.yml:/PFV/shadow_client_test.yml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_server_test.yml:/PFV/shadow_server_test.yml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_client_test_template.yml:/PFV/shadow_client_test_template.yml \
+			-v ${PWD}/src/pfv/res/shadow/shadow_server_test_template.yml:/PFV/shadow_server_test_template.yml \
+			-v ${PWD}/data/tls-keys:/PFV/tls-keys \
+			-v ${PWD}/data/tickets:/PFV/tickets \
+			-v ${PWD}/data/qlogs:/PFV/qlogs \
+			-v ${PWD}/src/pfv/pfv_utils/:/PFV/pfv_utils/ \
+			-v ${PWD}/src/pfv/pfv_stats/:/PFV/pfv_stats/ \
+			-v ${PWD}/src/pfv/pfv_runner/:/PFV/pfv_runner/ \
+			-v ${PWD}/src/pfv/pfv_tester/:/PFV/pfv_tester/ \
+			-v ${PWD}/src/pfv/ivy_utils/:/PFV/ivy_utils/ \
+			-v ${PWD}/src/pfv/logger/:/PFV/logger/ \
+			-v ${PWD}/src/pfv/argument_parser/:/PFV/argument_parser/ \
+			-v ${PWD}/src/pfv/configs/:/PFV/configs/ \
+			-v ${PWD}/src/Protocols-Ivy/protocol-testing/:/PFV/Protocols-Ivy/protocol-testing/ \
+			-v ${PWD}/src/Protocols-Ivy/doc/examples/quic:/PFV/Protocols-Ivy/doc/examples/quic \
+			-v ${PWD}/src/Protocols-Ivy/ivy/:/PFV/Protocols-Ivy/ivy/ \
+			-v ${PWD}/src/Protocols-Ivy/ivy/include/1.7:/PFV/Protocols-Ivy/ivy/include/1.7 \
+			-v /tmp/.X11-unix:/tmp/.X11-unix \
+			ping-pong-ivy:latest \
+			python3 pfv.py --update_ivy --getstats --compile --docker

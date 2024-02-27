@@ -46,6 +46,7 @@ hosts:
     processes:
     - path: <BUILD_PATH>/<TEST_NAME>
       args: <TEST_ARGS>
+      start_time: 1s
       environment:
           PROOTPATH: /PFV
           PATH: /root/.local/bin:/root/.cargo/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/go/bin
@@ -79,3 +80,4 @@ hosts:
     #   args: -i 11.0.0.1 -p 4443
     - path: <IMPLEM_PATH>
       args: <IMPLEM_ARGS>
+      start_time: 5s

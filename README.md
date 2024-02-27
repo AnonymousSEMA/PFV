@@ -15,6 +15,30 @@ For now the following protocols are supported:
 
 ---
 
+## :wrench: Forte 2024 
+
+### :whale: Seeing the mains results in the paper
+
+* You can see the results  by going to 
+  * QUIC : folder [1-2] in src/Protocols-Ivy/protocol-testing/quic/test/temp
+  * MiniP: folder [1-2] in src/Protocols-Ivy/protocol-testing/minip/test/temp
+
+
+### :whale: Starting the experiment
+
+1. Install the software
+
+2. Run the following command to start the experiment:
+
+```bash
+make forte-2024-ping-pong
+make forte-2024-picoquic
+```
+
+The results will be available in the `temp` folder of the desired protocol.
+You can also use the webapp to see the start the experiment but make sure to check the correct parameters. (see below)
+Be aware that if you set loss > 0, the first initial packet might be lost and the experiment will not start.
+
 ## :wrench: Installation 
 
 <details>
