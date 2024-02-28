@@ -51,7 +51,7 @@ install:
 	cd src/Protocols-Ivy; mkdir -p protocol-testing/coap/build; mkdir -p protocol-testing/coap/test/temp; touch protocol-testing/coap/test/temp/data.csv
 	cd src/Protocols-Ivy; mkdir -p protocol-testing/bgp/build; mkdir -p protocol-testing/bgp/test/temp; touch protocol-testing/bgp/test/temp/data.csv
     # Perform additional setup and build Docker containers
-	make checkout-git
+	# make checkout-git
 	make build-docker-compose-full
 
 # Check out specific commits of submodules for consistency
