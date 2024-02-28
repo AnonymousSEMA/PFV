@@ -44,8 +44,12 @@ class Runner:
         
         self.implems = implems
         
-        self.webapp_ip = socket.gethostbyname("ivy-picotls-standalone")
-        print(self.webapp_ip)
+        try:
+            self.webapp_ip = socket.gethostbyname("ivy-picotls-standalone")
+            print(self.webapp_ip)
+        except:
+            pass
+        
         print(self.nb_test_to_execute)
         print(self.nb_test_to_execute*self.config["global_parameters"].getint("iter"))
         # TODO make less general 

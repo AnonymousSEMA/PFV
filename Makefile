@@ -180,8 +180,11 @@ start-bash:
 
 forte-2024-picoquic:
     # TODO
+	cp src/pfv/configs/config.ini src/pfv/configs/config_temp.ini 
+	cp src/pfv/configs/config_quic.ini src/pfv/configs/config.ini
 	docker run -d \
 			--hostname picoquic-shadow-ivy-forte \
+			--name picoquic-shadow-ivy-forte \
 			--network net  \
 			--privileged \
 			--security-opt seccomp:unconfined \
@@ -218,12 +221,19 @@ forte-2024-picoquic:
 			-v /tmp/.X11-unix:/tmp/.X11-unix \
 			picoquic-shadow-ivy:latest \
 			python3 pfv.py --update_ivy --getstats --compile --docker
+	docker wait picoquic-shadow-ivy-forte
+	docker stop minip-shadow-ivy-forte
+	docker rm picoquic-shadow-ivy-forte
+	cp src/pfv/configs/config_temp.ini src/pfv/configs/config.ini 
 
 forte-2024-ping-pong:
     # TODO
+	cp src/pfv/configs/config.ini src/pfv/configs/config_temp.ini 
+	cp src/pfv/configs/config_minip.ini src/pfv/configs/config.ini
 	docker run -d \
 			--hostname ping-pong-ivy-forte \
 			--network net  \
+			--name minip-shadow-ivy-forte \
 			--privileged \
 			--security-opt seccomp:unconfined \
 			--cap-add NET_ADMIN \
@@ -259,3 +269,7 @@ forte-2024-ping-pong:
 			-v /tmp/.X11-unix:/tmp/.X11-unix \
 			ping-pong-ivy:latest \
 			python3 pfv.py --update_ivy --getstats --compile --docker
+	docker wait minip-shadow-ivy-forte
+	docker stop minip-shadow-ivy-forte
+	docker rm minip-shadow-ivy-forte
+	cp src/pfv/configs/config_temp.ini src/pfv/configs/config.ini 

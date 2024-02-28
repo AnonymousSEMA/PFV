@@ -125,13 +125,15 @@ class MiniPRunner(Runner):
                             sys.stderr = sys.__stderr__
                             
                             x = None
-                            while x is None or x.status_code != 200:
+                            retry = 3
+                            while (x is None or x.status_code != 200) and retry > 0:
                                 try:
                                     print("Update count")
                                     x = requests.get('http://'+ self.webapp_ip +'/update-count')
                                     self.log.info(x)
                                 except Exception as e:
                                     time.sleep(5)
+                                    retry -= 1
                                     print(e)
                                     
                             subprocess.Popen("/usr/bin/tail -2 " + ivy_err, 

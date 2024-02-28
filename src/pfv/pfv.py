@@ -63,7 +63,7 @@ class PFV:
             
     def setup_config(self, init=False, protocol=None):
         config = configparser.ConfigParser(allow_no_value=True)
-        config.read('configs/config.ini')
+        config.read('configs/config.ini') # TODO put that in argument -> not wanting to rename so change horribly in makefile
             
         self.key_path = SOURCE_DIR + "/tls-keys/"
         self.implems = {}
@@ -278,8 +278,15 @@ class PFV:
         
 
         if implementations == None or implementations == []:
-            self.log.error("TODO implement in local mode, for now only with docker (ERROR)")
-            sys.exit(0)
+            # self.log.error("TODO implement in local mode, for now only with docker (ERROR)")
+            # sys.exit(0)
+            if self.config["verified_protocol"].getboolean("quic"):
+                implementations = ["picoquic"]
+            elif self.config["verified_protocol"].getboolean("minip"):
+                implementations = ["ping-pong"]
+            else:
+                self.log.info("No protocols selected")
+                exit(0)
             # TODO implement in local mode, for now only with docker
 
         for implem in implementations:
