@@ -15,6 +15,9 @@ For now the following protocols are supported:
 
 ---
 
+Original repository: 
+- https://github.com/ElNiak/PFV
+
 ## :wrench: Forte 2024 
 
 ### :whale: Seeing the mains results in the paper
@@ -23,6 +26,20 @@ For now the following protocols are supported:
   * QUIC : folder [1-2] in src/Protocols-Ivy/protocol-testing/quic/test/temp
   * MiniP: folder [1-2] in src/Protocols-Ivy/protocol-testing/minip/test/temp
 
+* How to read the result, e.g for :
+  * shadow:
+      * shadow.log: contains the logs of shadow
+      * shadow.data/:
+    	 * server/: contains ptrace/logs/pcap related to server
+         * client/: contains ptrace/logs/pcap related to client
+  * For ivy-minip implementation:
+      * ping_server_test0.iev: contains the ivy traces
+      * ivy_stderr.txt: contains stderr 
+  * For ping implementation:
+     * ping_server_test0.out: contains ping stdout logs
+     * ping_server_test0.err: contains ping stderr logs
+  * ivy_stdout.txt: contains ivy logs 
+  * ping-pong_ping_server_test.pcap: contains global pcap trace
 
 ### :whale: Starting the experiment
 
