@@ -223,7 +223,7 @@ forte-2024-picoquic:
 			picoquic-shadow-ivy:latest \
 			python3 pfv.py --update_ivy --getstats --compile --docker
 	docker wait picoquic-shadow-ivy-forte
-	docker stop minip-shadow-ivy-forte
+	docker stop picoquic-shadow-ivy-forte
 	docker rm picoquic-shadow-ivy-forte
 	cp src/pfv/configs/config_temp.ini src/pfv/configs/config.ini 
 
