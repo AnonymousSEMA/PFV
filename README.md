@@ -435,8 +435,11 @@ PFV/
     ├── implementations/
     │   ├── quic-implementations/
     │   │       ├── picoquic/
-    │   │       ├── aioquic/
-    │   │       ├── lsquic/
+    │   │       └── [protocol implementations]
+    │   ├── minip-implementations/
+    │   │       ├── ping-pong
+    │   │       ├── ping-pong-flaky
+    │   │       ├── ping-pong-fail
     │   │       └── [protocol implementations]
     │   └── [other protocols]
     ├── containers/
@@ -449,10 +452,10 @@ PFV/
         └── configs/
             └── [configuration files]
 ```
-- `data/`: Data directory for storing results and logs.
+- `data/`: Data directory for storing results and logs of old tests.
 - `pfv/`: Main PFV module.
 - `Protocols-Ivy/`: Core of protocol specifications and testing.
-- `implementations/`: Various QUIC implementation modules.
+- `implementations/`: Various implementation modules.
 - `containers/`: Dockerfile definitions for different environments.
 
 
