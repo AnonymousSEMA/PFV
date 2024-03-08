@@ -283,7 +283,7 @@ class PFV:
             if self.config["verified_protocol"].getboolean("quic"):
                 implementations = ["picoquic"]
             elif self.config["verified_protocol"].getboolean("minip"):
-                implementations = ["ping-pong"]
+                implementations = ["ping-pong"] if os.environ['FAIL'] == "false" else ["ping-pong-fail"]
             else:
                 self.log.info("No protocols selected")
                 exit(0)

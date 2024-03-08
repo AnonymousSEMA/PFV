@@ -24,7 +24,9 @@ Original repository:
 
 * You can see the results  by going to 
   * QUIC : folder [1-2] in src/Protocols-Ivy/protocol-testing/quic/test/temp
-  * MiniP: folder [1-2] in src/Protocols-Ivy/protocol-testing/minip/test/temp
+  * MiniP: 
+    * folder [1-2] in src/Protocols-Ivy/protocol-testing/minip/test/temp for the test that do not fail 
+    * folder [3-4] in src/Protocols-Ivy/protocol-testing/minip/test/temp for the test that fail 
 
 * How to read the result, e.g for :
   * shadow:
