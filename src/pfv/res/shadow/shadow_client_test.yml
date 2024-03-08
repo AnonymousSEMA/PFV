@@ -44,8 +44,8 @@ hosts:
     network_node_id: 0
     ip_addr: "11.0.0.1"
     processes:
-    - path: /PFV/Protocols-Ivy/protocol-testing/minip/build//ping_client_test
-      args:  seed=98 server_port=4443 server_addr=184549377   
+    - path: /PFV/Protocols-Ivy/protocol-testing/quic/build//quic_client_test_deadconnection_signal
+      args:  seed=248 the_cid=1 server_port=4443 iversion=29 server_addr=184549377 modify_packets=false  
       start_time: 1s
       environment:
           PROOTPATH: /PFV
@@ -62,12 +62,12 @@ hosts:
           initial_max_stream_data_bidi_remote: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_stream_data_bidi_remote.txt
           initial_max_stream_data_uni: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_stream_data_uni.txt
           initial_max_data: /PFV/Protocols-Ivy/doc/examples/quic/initial_max_data.txt
-          INITIAL_VERSION: "<VERSION>"
+          INITIAL_VERSION: "29"
           TEST_TYPE: client
-          TEST_IMPL: <IMPLEMENTATION>
-          TEST_ALPN: <ALPN>
+          TEST_IMPL: picoquic
+          TEST_ALPN: hq-29
           # TIMEOUT_IVY: "15"
-          SSLKEYLOGFILE: <SSLKEYLOGFILE>
+          SSLKEYLOGFILE: /PFV/tls-keys/picoquic_key.log
           # TODO
           CNT: "0"
 
@@ -78,6 +78,6 @@ hosts:
     processes:
     # - path: /PFV/implementations/quic-implementations/ping-pong/miniP_client
     #   args: -i 11.0.0.1 -p 4443
-    - path: /PFV/implementations/minip-implementations//ping-pong/./miniP_client
-      args: -p "4443" -i 11.0.0.1
+    - path: /PFV/implementations/quic-implementations//picoquic/./picoquicdemo
+      args: -c /PFV/implementations/quic-implementations//picoquic//certs/cert.pem -T /PFV/tickets/ticket.bin -l - -k /PFV/implementations/quic-implementations//picoquic//certs/key.pem -a hq-29 -v ff00001d -D -L -n servername 11.0.0.1 4443
       start_time: 5s

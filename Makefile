@@ -51,13 +51,13 @@ install:
 	cd src/Protocols-Ivy; mkdir -p protocol-testing/coap/build; mkdir -p protocol-testing/coap/test/temp; touch protocol-testing/coap/test/temp/data.csv
 	cd src/Protocols-Ivy; mkdir -p protocol-testing/bgp/build; mkdir -p protocol-testing/bgp/test/temp; touch protocol-testing/bgp/test/temp/data.csv
     # Perform additional setup and build Docker containers
-	# make checkout-git
+	make checkout-git
 	make build-docker-compose-full
 
 # Check out specific commits of submodules for consistency
 checkout-git:
     # Specific commits are checked out for each submodule to ensure consistency and reproducibility
-	cd src/Protocols-Ivy/submodules/picotls/; git checkout 047c5fe20bb9ea91c1caded8977134f19681ec76
+	# cd src/Protocols-Ivy/submodules/picotls/; git checkout 047c5fe20bb9ea91c1caded8977134f19681ec76
     # QUIC implementations
 	#cd src/implementations/quic-implementations/aioquic/;git checkout d272be10b93b09b75325b139090007dae16b9f16
 	#cd src/implementations/quic-implementations/boringssl/; git checkout a9670a8b476470e6f874fef3554e8059683e1413; git submodule init; git submodule update
@@ -223,7 +223,7 @@ forte-2024-picoquic:
 			picoquic-shadow-ivy:latest \
 			python3 pfv.py --update_ivy --getstats --compile --docker
 	docker wait picoquic-shadow-ivy-forte
-	docker stop minip-shadow-ivy-forte
+	docker stop picoquic-shadow-ivy-forte
 	docker rm picoquic-shadow-ivy-forte
 	cp src/pfv/configs/config_temp.ini src/pfv/configs/config.ini 
 
