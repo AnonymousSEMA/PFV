@@ -55,8 +55,12 @@ make forte-2024-picoquic
 ```
 
 The results will be available in the `temp` folder of the desired protocol.
+
 You can also use the webapp to see the start the experiment but make sure to check the correct parameters. (see below)
+
 Be aware that if you set loss > 0, the first initial packet might be lost and the experiment will not start.
+
+NOTE: With that, the experiments took about 2min. (Compilation time of C++ binaries includes)
 
 ## :wrench: Installation 
 
