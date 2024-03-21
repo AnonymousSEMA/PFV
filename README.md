@@ -214,7 +214,7 @@ python3 pfv.py --mode client --categories all --update_include_tls \
 
 This quick guide assists you in using the Ivy QUIC web application for testing QUIC implementations.
 
-First go to: `http://172.0.1.10/index.html`
+First go to: `http://172.27.1.10/index.html`
 
 **Configuration Steps**:
 
