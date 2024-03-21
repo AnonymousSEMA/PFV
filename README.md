@@ -64,6 +64,8 @@ Be aware that if you set loss > 0, the first initial packet might be lost and th
 
 NOTE: With that, the experiments take about 2min. (Compilation time of C++ binaries includes)
 
+DISCLAIMER: For QUIC, only the tests used for the paper are guaranteed to be up to date with the current version of PFV. (see "true" test in src/pfv/configs/quic/quic_config.ini).
+
 ## :wrench: Installation 
 
 <details>
